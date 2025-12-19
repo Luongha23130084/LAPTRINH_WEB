@@ -1,0 +1,117 @@
+.pagebody{
+	margin-left: 90px;
+}
+
+/*tạo menu*/
+#menu{
+	width: 100%;
+	height: 40px;
+	background-color: #265325;
+	display: block;
+	
+	position: fixed; /*Cho menu cố định 1 vị trí với top và left*/
+	top: 0; /*Nằm trên cùng*/
+	left: 0; /*Nằm sát bên trái*/
+	z-index: 100000; /*Hiển thị lớp trên cùng*/
+}
+#menu ul{
+	padding-left: 120px;
+}
+#menu ul li{
+	list-style:none inside;
+	width: auto;
+	float: left;
+	line-height: 25px; /*Cho text canh giữa menu*/
+	font-size: 30;
+	color: #fff;
+	padding: 0;
+	margin-right:20px;
+	position: relative;
+}
+#menu ul li a{
+	
+	padding: 0 10px;
+	color: #fff;
+	display: block;
+	font-size: 0.8em;
+	text-decoration: none;
+}
+
+/*form*/
+
+#bang tr td{
+	padding: 10px 5px;
+	height: 50px;
+}
+.inputPageNhaHang{
+	height: 50px;
+	background: transparent;
+	
+}
+
+#ChonChiNhanh select {	
+	height: 50px;
+	width: 400px;
+	/*background: transparent;*/
+}
+#ChonChiNhanh select option{
+	
+}
+#form{
+	background: url("../images/background.jpg");
+	height: 600px;
+	margin-top: 50px;
+	
+}
+
+
+/*Trang dang nhap*/
+#dangnhap{
+	padding-top: 40px;
+}
+#logo{
+	float: left;
+	width: 45%;
+	margin-left: 20px;
+	
+}
+#thongtindangnhap{	
+	float: right;
+	width: 45%;
+	
+	
+}
+.inputword{
+	height: 50px;
+	width: 400px;	
+}
+.radiocheck{
+	
+}
+
+/*Quản lý thành viên*/
+#timkiem{
+	margin-top: 100px;
+	margin-left: 200px;
+}
+#timkiem input{
+	height: 50px;
+	width: 500px;
+}
+#quyenadminh{
+	margin-top: 20px;
+	margin-left: 200px;
+}
+/*************************************************/
+/*Quản lý đặt bàn*/
+.container{
+	margin-left: 400px;
+}
+.column{	
+	display: inline-block;	
+	overflow: auto;
+}
+.tenMonAn{
+	display: inline-block;
+}
+
