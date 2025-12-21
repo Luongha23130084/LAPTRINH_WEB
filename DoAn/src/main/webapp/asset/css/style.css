@@ -1,0 +1,831 @@
+/* ========================================
+   BIẾN MÀU SẮC - DỄ TÙY CHỈNH
+======================================== */
+:root {
+    --primary-color: #f97316;
+    --primary-dark: #ea580c;
+    --primary-light: #fb923c;
+    --secondary-color: #ef4444;
+    --bg-light: #fff5f0;
+    --bg-white: #ffffff;
+    --bg-gray: #f9fafb;
+    --text-dark: #333333;
+    --text-light: #6b7280;
+    --text-white: #ffffff;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 10px rgba(0,0,0,0.15);
+    --shadow-lg: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* ========================================
+   RESET & BASE STYLES
+======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    /* Pattern background nhẹ */
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(249, 115, 22, 0.02) 35px, rgba(249, 115, 22, 0.02) 70px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ========================================
+   HEADER STYLES - Với Logo
+======================================== */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+/* Logo với icon */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-white);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.logo::before {
+    content: "🍽️";
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Navigation Desktop */
+.nav-desktop {
+    display: none;
+    gap: 2rem;
+}
+
+.nav-desktop a {
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--text-white);
+    transition: all 0.3s;
+    transform: translateX(-50%);
+}
+
+.nav-desktop a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-desktop a:hover::after {
+    width: 80%;
+}
+
+/* Navigation Mobile */
+.nav-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-mobile.active {
+    display: flex;
+    animation: slideDown 0.3s ease-out;
+}
+
+.nav-mobile a {
+    text-decoration: none;
+    color: var(--text-white);
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.nav-mobile a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ========================================
+   BUTTON STYLES
+======================================== */
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: var(--text-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background: #6b7280;
+    color: var(--text-white);
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+}
+
+.btn-white {
+    background: var(--bg-white);
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-white:hover {
+    background: #f3f4f6;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-full {
+    width: 100%;
+    padding: 0.75rem;
+}
+
+.btn-menu {
+    display: block;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    color: var(--text-white);
+    transition: background 0.3s;
+}
+
+.btn-menu:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   HERO SECTION - Banner Chính
+======================================== */
+.hero {
+    min-height: 500px;
+    background-image: 
+        linear-gradient(rgba(249, 115, 22, 0.85), rgba(239, 68, 68, 0.85)),
+        url('../images/backgrounds/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-white);
+    padding: 5rem 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fallback nếu không có ảnh */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    z-index: -1;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   SECTION STYLES
+======================================== */
+.section {
+    padding: 4rem 1rem;
+}
+
+.section-white {
+    background: var(--bg-white);
+}
+
+.section-gray {
+    background: var(--bg-gray);
+}
+
+/* About Section - Với background image */
+#about.section-white {
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+        url('../images/backgrounds/about-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.section-header h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+.icon-large {
+    font-size: 4rem;
+}
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-content p {
+    font-size: 1.125rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+/* ========================================
+   MENU SECTION - Thực Đơn Với Hình
+======================================== */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.menu-card {
+    background: var(--bg-white);
+    padding: 0;
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Header của menu card với background image */
+.menu-card-header {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
+}
+
+.menu-card h4 {
+    color: var(--text-white);
+    font-size: 1.5rem;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    font-weight: bold;
+}
+
+/* Background images cho từng loại */
+.menu-card:nth-child(1) .menu-card-header {
+    background-image: url('../images/foods/appetizer-category.jpg');
+    background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=400&fit=crop');
+}
+
+.menu-card:nth-child(2) .menu-card-header {
+    background-image: url('../images/foods/main-category.jpg');
+    background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=400&fit=crop');
+}
+
+.menu-card:nth-child(3) .menu-card-header {
+    background-image: url('../images/foods/dessert-category.jpg');
+    background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&h=400&fit=crop');
+}
+
+.menu-card-body {
+    padding: 1.5rem;
+}
+
+.menu-card ul {
+    list-style: none;
+}
+
+.menu-card li {
+    color: var(--text-light);
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    transition: all 0.3s;
+}
+
+.menu-card li:last-child {
+    border-bottom: none;
+}
+
+.menu-card li:hover {
+    color: var(--primary-color);
+    padding-left: 10px;
+}
+
+/* ========================================
+   SPACE SECTION - Không Gian
+======================================== */
+.space-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.space-card {
+    background: #e5e7eb;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s;
+    position: relative;
+    height: 300px;
+}
+
+.space-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Background images cho space cards */
+.space-card:nth-child(1) {
+    background-image: url('../images/spaces/vip-room.jpg');
+    background-image: url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.space-card:nth-child(2) {
+    background-image: url('../images/spaces/family-area.jpg');
+    background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.space-placeholder {
+    padding: 4rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
+    transition: all 0.3s;
+}
+
+.space-card:hover .space-placeholder {
+    background: linear-gradient(to top, rgba(249, 115, 22, 0.9), rgba(239, 68, 68, 0.7));
+}
+
+.space-placeholder p {
+    color: var(--text-white);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.space-placeholder small {
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+/* ========================================
+   CONTACT SECTION - Liên Hệ
+======================================== */
+#contact.section-gray {
+    background: linear-gradient(rgba(249, 115, 22, 0.9), rgba(239, 68, 68, 0.9)),
+                url('../images/backgrounds/contact-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-white);
+}
+
+#contact .section-title {
+    color: var(--text-white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.contact-info {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-info p {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--text-white);
+}
+
+.contact-info strong {
+    color: rgba(255, 255, 255, 0.9);
+    display: inline-block;
+    min-width: 120px;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.footer {
+    background: #1f2937;
+    color: var(--text-white);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+}
+
+.admin-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: #9ca3af;
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.admin-link:hover {
+    color: var(--text-white);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   MODAL STYLES
+======================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+    overflow: auto;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--bg-white);
+    margin: 2rem;
+    padding: 2.5rem;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    animation: slideInScale 0.3s ease-out;
+}
+
+@keyframes slideInScale {
+    from {
+        transform: scale(0.8) translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #9ca3af;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.3s;
+}
+
+.close:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    font-size: 1.75rem;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.modal-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+}
+
+.modal-footer a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+/* ========================================
+   FORM STYLES
+======================================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+input, textarea {
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.1);
+    transform: translateY(-2px);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ========================================
+   BOOKING MODAL SPECIFIC
+======================================== */
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.booking-header h2 {
+    margin: 0;
+}
+
+.user-greeting {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* ========================================
+   UTILITY CLASSES
+======================================== */
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Loading Spinner */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(249, 115, 22, 0.3);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+@media (min-width: 768px) {
+    .nav-desktop {
+        display: flex;
+    }
+    
+    .btn-menu {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .space-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .form-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .section-header h3 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
+    .section {
+        padding: 3rem 1rem;
+    }
+    
+    .modal-content {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+    }
+}
