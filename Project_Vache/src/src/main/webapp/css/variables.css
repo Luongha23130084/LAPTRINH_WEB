@@ -1,0 +1,275 @@
+/* ============================================
+   VARIABLES.CSS - LỚP 1: CSS VARIABLES & BASE
+============================================ */
+
+/* ===== CSS VARIABLES - HANA BBQ COLORS ===== */
+:root {
+    /* 🎨 MÀU NỀN */
+    --bg-primary: #0a0a0a;          /* Nền đen chính */
+    --bg-secondary: #1a1a1a;        /* Nền card/section */
+    --bg-tertiary: #2a2a2a;         /* Nền hover */
+    
+    /* ✨ MÀU VÀNG GOLD */
+    --gold-primary: #d4af37;        /* Vàng chính */
+    --gold-light: #f4e4b8;          /* Vàng nhạt */
+    --gold-dark: #b8941f;           /* Vàng đậm */
+    
+    /* 🔴 MÀU ĐỎ ACCENT */
+    --red-primary: #c41e3a;         /* Đỏ chính */
+    --red-dark: #a01828;            /* Đỏ đậm */
+    
+    /* 📝 MÀU TEXT */
+    --text-primary: #ffffff;        /* Text trắng */
+    --text-secondary: #b0b0b0;      /* Text xám */
+    --text-tertiary: #808080;       /* Text xám đậm */
+    
+    /* 🎭 SHADOWS */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+    --shadow-gold: 0 4px 16px rgba(212,175,55,0.3);
+    --shadow-red: 0 4px 16px rgba(196,30,58,0.3);
+    
+    /* 📐 SPACING */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* 🔤 FONT SIZES */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-md: 1rem;
+    --font-lg: 1.25rem;
+    --font-xl: 1.5rem;
+    --font-2xl: 2rem;
+    --font-3xl: 2.5rem;
+    
+    /* 📏 BORDER RADIUS */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+    
+    /* ⏱️ TRANSITIONS */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* ===== GLOBAL RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ===== BASE STYLES ===== */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===== TYPOGRAPHY BASE ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: var(--font-3xl); }
+h2 { font-size: var(--font-2xl); }
+h3 { font-size: var(--font-xl); }
+h4 { font-size: var(--font-lg); }
+h5 { font-size: var(--font-md); }
+h6 { font-size: var(--font-sm); }
+
+p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--gold-primary);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+a:hover {
+    color: var(--gold-light);
+}
+
+/* ===== BUTTONS BASE ===== */
+button {
+    font-family: inherit;
+    font-size: var(--font-md);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all var(--transition-normal);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===== FORM ELEMENTS BASE ===== */
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: var(--font-md);
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    transition: all var(--transition-normal);
+    width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 0 3px rgba(212,175,55,0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255,255,255,0.3);
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold-primary);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-dark);
+}
+
+/* ===== SELECTION STYLING ===== */
+::selection {
+    background: var(--gold-primary);
+    color: var(--bg-primary);
+}
+
+::-moz-selection {
+    background: var(--gold-primary);
+    color: var(--bg-primary);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.hidden { display: none !important; }
+.visible { display: block !important; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+/* ===== COMMON PATTERNS ===== */
+.card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: var(--spacing-lg) 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: var(--font-sm);
+    font-weight: 600;
+}
+
+/* ===== RESPONSIVE BASE ===== */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .header,
+    .footer,
+    .nav,
+    button {
+        display: none !important;
+    }
+}
