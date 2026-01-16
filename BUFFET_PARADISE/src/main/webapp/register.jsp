@@ -13,6 +13,22 @@
     <link rel="stylesheet" href="css/pages.css">
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<style>
+    /* Cho phép cuộn trang khi nội dung dài hơn màn hình */
+    body.auth-body {
+        height: auto !important;
+        min-height: 100vh;
+        overflow-y: auto !important;
+        display: block !important; /* Tránh bị flex-center làm mất đỉnh trang */
+        padding: 20px 0;
+    }
+
+    .auth-container {
+        height: auto !important;
+        min-height: fit-content;
+        margin: auto;
+    }
+</style>
 </head>
 <body class="auth-body">
     <!-- Background Pattern -->
